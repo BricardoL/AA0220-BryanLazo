@@ -2,22 +2,22 @@
 
 using namespace std;
 
-struct Nodo
+struct Node
 {
     int dato;
-    Nodo *siguiente;
+    Node *siguiente;
 };
 
 
-void addElement(Nodo *&, Nodo *&, int);
-bool cola_vacia(Nodo *);
-void deleteElement(Nodo *&, Nodo *&, int &); 
+void addElement(Node *&, Node *&, int);
+bool cola_vacia(Node *);
+void deleteElement(Node *&, Node *&, int &); 
 
 
 
 int main(){
-    Nodo *frente = NULL;
-    Nodo *fin = NULL;
+    Node *frente = NULL;
+    Node *fin = NULL;
     int dato;
 
     cout<<"Ingrese numero a la cola: ";
@@ -52,8 +52,8 @@ int main(){
     return 0;
 }
 
-void addElement(Nodo *&frente, Nodo *&fin, int n){
-    Nodo *nuevo = new Nodo();
+void addElement(Node *&frente, Node *&fin, int n){
+    Node *nuevo = new Node();
     nuevo->dato = n;
     nuevo->siguiente = NULL;
 
@@ -67,13 +67,13 @@ void addElement(Nodo *&frente, Nodo *&fin, int n){
     fin = nuevo;
 }
 
-bool cola_vacia(Nodo *frente){
+bool cola_vacia(Node *frente){
     return (frente == NULL)? true : false; 
 }
 
-void deleteElement(Nodo *&frente, Nodo *&fin, int &n){
+void deleteElement(Node *&frente, Node *&fin, int &n){
     n = frente->dato;
-    Nodo *aux = frente;
+    Node *aux = frente;
 
     if(frente == fin){
         frente = NULL;

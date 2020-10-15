@@ -3,18 +3,18 @@
 
 using namespace std;
 
-struct Nodo
+struct Node
 {
     int dato;
-    Nodo *siguiente;
+    Node *siguiente;
 };
 
-void addElement(Nodo * &, int);
-void showElement(Nodo * &pila, int &n);
+void addElement(Node * &, int);
+void showElement(Node * &pila, int &n);
 
 
 int main(void){
-    Nodo *pila = NULL;
+    Node *pila = NULL;
     string datos;
     string clave;
     int x;
@@ -54,9 +54,9 @@ int main(void){
     return 0;
 }
 
-void addElement(Nodo * &pila, int n)
+void addElement(Node * &pila, int n)
     {
-        Nodo *nuevo = new Nodo();
+        Node *nuevo = new Node();
         nuevo->dato = n;
         nuevo->siguiente = pila;
         pila = nuevo;
@@ -64,9 +64,9 @@ void addElement(Nodo * &pila, int n)
     }
 
 
-void showElement(Nodo * &pila, int &n)
+void showElement(Node * &pila, int &n)
     {
-        Nodo *aux = pila;
+        Node *aux = pila;
         n = aux->dato;
         pila = aux->siguiente;
         cout << aux->dato;

@@ -3,19 +3,19 @@
 using namespace std;
 
 //Nodo es la combinacion de un dato y puntero(senialando su posicion)
-struct Nodo
+struct Node
 {
     int dato;
-    Nodo *siguiente;
+    Node *siguiente;
 };
 
-void addElement(Nodo *&, int);
-void deleteElement(Nodo *&, int &);
-void showElement(Nodo *&, int &);
+void addElement(Node *&, int);
+void deleteElement(Node *&, int &);
+void showElement(Node *&, int &);
 
 int main()
 {
-    Nodo *pila = NULL; //Pila vacia, objetos que viene apuntara a la salida(fondo)
+    Node *pila = NULL; //Pila vacia, objetos que viene apuntara a la salida(fondo)
     int dato;          //Dato
     int opc;
 
@@ -59,26 +59,26 @@ int main()
         return 0;
     }
 
-    void addElement(Nodo * &pila, int n)
+    void addElement(Node * &pila, int n)
     {
-        Nodo *nuevo = new Nodo();
+        Node *nuevo = new Node();
         nuevo->dato = n;
         nuevo->siguiente = pila;
         pila = nuevo;
         cout << "Se ha ingresado correctamente a pila el numero " << n << endl;
     }
 
-    void deleteElement(Nodo * &pila, int &n)
+    void deleteElement(Node * &pila, int &n)
     {
-        Nodo *aux = pila;
+        Node *aux = pila;
         n = aux->dato;
         pila = aux->siguiente;
         delete aux;
     }
 
-    void showElement(Nodo * &pila, int &n)
+    void showElement(Node * &pila, int &n)
     {
-        Nodo *aux = pila;
+        Node *aux = pila;
         n = aux->dato;
         pila = aux->siguiente;
         cout << aux->dato;

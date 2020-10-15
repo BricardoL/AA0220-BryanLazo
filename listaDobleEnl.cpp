@@ -4,17 +4,17 @@
 using namespace std;
 
 
-struct Nodo{
+struct Node{
 	int valor;
-	Nodo *ant;
-	Nodo *sig;
+	Node *ant;
+	Node *sig;
 };
 
 void insert( int);
 void show();
 void showInReverse();
 
-Nodo*lista=NULL;
+Node*lista=NULL;
 
 int main (){
 	int opcion,num1,num2,num3;
@@ -52,8 +52,23 @@ int main (){
 return 0;
 }
 
+/*void pushFront(int data) {
+    Node *new_nodo=new Node;
+    new_nodo->valor = data;
+    new_nodo->ant = NULL;
+
+    // If list is empty, then front and back are the same
+    // and new prev and next are empty
+    if(!lista->sig) {
+        lista->sig = lista->ant = new_nodo;
+        new_nodo->ant = new_nodo->sig = NULL;
+
+        return;
+    }*/
+
+
 void insert(int data){
-	Nodo *new_nodo=new Nodo;
+	Node *new_nodo=new Node;
 	new_nodo->sig=NULL;
 	new_nodo->ant=NULL; // NULL--nn -- nn -- NULL
 	new_nodo->valor=data; //20
@@ -62,7 +77,7 @@ void insert(int data){
 		lista=new_nodo;
 	}
 	else{
-		Nodo *aux=lista;
+		Node *aux=lista;
 		while(aux->sig!=NULL){
 		aux=aux->sig;	
 		}
@@ -75,7 +90,7 @@ void insert(int data){
 }
 
 void show(){
-	Nodo *aux=lista;
+	Node *aux=lista;
 
 	while(aux!=NULL){
 		cout<<aux->valor<<", ";
@@ -85,7 +100,7 @@ void show(){
 }
 
 void showInReverse(){
-	Nodo *aux=lista;
+	Node *aux=lista;
 	while(aux->sig!=NULL){
 		aux=aux->sig;
 	}
